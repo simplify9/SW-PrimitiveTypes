@@ -10,11 +10,18 @@
     <Copyright>Simplify9</Copyright>
     <Company>Simplify9</Company>
     <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <Description>Foundational .NET library with essential types, patterns, and interfaces for modern application development. Includes value objects, domain patterns, API handlers, and messaging contracts.</Description>
+    <PackageTags>dotnet;csharp;ddd;domain-driven-design;value-objects;cqrs;patterns;primitives;money;weight;dimensions;entity;aggregate;specification</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="../NUGET_README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

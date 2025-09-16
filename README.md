@@ -1,34 +1,78 @@
 # SW.PrimitiveTypes
-![Build Status](https://dev.azure.com/simplify9/Github%20Pipelines/_apis/build/status/simplify9.PrimitiveTypes?branchName=master)
 
-| **Package**       | **Version** |
-| :----------------:|:----------------------:|
-| ``SimplyWorks.PrimitiveTypes``|![Nuget](https://img.shields.io/nuget/v/SimplyWorks.PrimitiveTypes?style=for-the-badge)|
+[![Build Status](https://dev.azure.com/simplify9/Github%20Pipelines/_apis/build/status/simplify9.PrimitiveTypes?branchName=master)](https://dev.azure.com/simplify9/Github%20Pipelines/_build/latest?definitionId=YOUR_DEFINITION_ID&branchName=master)
+[![NuGet Version](https://img.shields.io/nuget/v/SimplyWorks.PrimitiveTypes?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/SimplyWorks.PrimitiveTypes/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/SimplyWorks.PrimitiveTypes?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/SimplyWorks.PrimitiveTypes/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-[SW.PrimitiveTypes](https://www.nuget.org/packages/SimplyWorks.PrimitiveTypes/) is a library
-containing highly reusable types and interfaces that pertain to certain patterns of programming and typical value types. It is a dependency for almost all Simplify9's packages.
+A comprehensive .NET 8.0 library providing foundational building blocks for modern application development. Essential types, interfaces, and patterns for domain-driven design, value objects, messaging, and API development.
 
-## Value Objects
-The *Value Objects* segment focuses on typical business logic types like
-`StreetAddress`, `Weight`, `Money` or `Blob`. This is to cut down on repetitive types in the most
-common business applications.
+## 🚀 Quick Start
 
-## Bus
-The [`Bus`](https://github.com/simplify9/Bus) segment contains interfaces of a typical bus messaging system, like consumers and publishers. The `SimplyWorks.Bus` package looks for implementations of these interfaces to add to the bus' consumers/publishers.
+```bash
+dotnet add package SimplyWorks.PrimitiveTypes
+```
 
-## CqApi
-The [`CqApi`](https://github.com/simplify9/CqApi) segment contains interfaces to define typical API handler types, (*Eg:* `IGetHandler<>`, `ICommandHandler<>`, etc.). The `SimplyWorks.CqApi` library looks for implementations of these interfaces to inject into its dynamic API.
+## ✨ Key Features
 
-## Searchy
-The [`Searchy`](https://github.com/simplify9/Searchy) segment revolves around interfaces that describe typical Searchy handlers, to cut down on API's work when it comes understanding a query message.
+- 🏗️ **Domain Patterns** - Entities, aggregates, specifications, auditing
+- 💎 **Value Objects** - `Money`, `Weight`, `Dimensions`, `StreetAddress` 
+- 🚌 **Messaging** - Bus contracts for pub/sub patterns
+- 🎯 **API Handlers** - CQRS interfaces for commands and queries
+- 🔧 **Extensions** - Type conversion and utility methods
+- ☁️ **Cloud Storage** - File operation abstractions
 
-## CloudFiles
-The [`Cloudfiles`](https://github.com/simplify9/CloudFiles) segment has interfaces to describe services that lift blobs/streams on the cloud.
-`SimplyWorks.CloudFiles` is an implementation of this interfaces.
+## � Usage Example
 
-## Conversion Methods
-ConvertValueToType**: extends `object` and takes in a `Type` as a parameter and goes through the process of different methods of conversion to get the optimal result. Note that is optimized to avoid redundant or unnecessary conversions.
+```csharp
+// Value Objects
+var price = new Money(99.99m, "USD");
+var weight = new Weight(2.5m, WeightUnit.kg);
+var dimensions = new Dimensions(100, 50, 30, DimensionUnit.cm);
+
+// Domain Entity
+public class Product : IAggregateRoot
+{
+    public int Id { get; set; }
+    public Money Price { get; set; }
+    public Weight ShippingWeight { get; set; }
+}
+
+// API Handler
+public class GetProductHandler : IGetHandler<int, Product>
+{
+    public async Task<Product> Handle(int id) => /* implementation */;
+}
+```
+
+## 📚 Complete Documentation
+
+**📖 [View Full Documentation on GitHub](https://github.com/simplify9/SW-PrimitiveTypes)**
+
+For comprehensive guides, examples, and API reference:
+- 🏗️ Architecture patterns and best practices  
+- 📝 Detailed code examples and tutorials
+- 🔧 Advanced configuration and usage scenarios
+- 🤝 Contributing guidelines and development setup
 
 
-## Getting support 👷
-If you encounter any bugs, don't hesitate to submit an [issue](https://github.com/simplify9/HttpExtensions/issues). We'll get back to you promptly!
+## 🏛️ Related Packages
+
+Part of the Simplify9 ecosystem:
+- **[SimplyWorks.Bus](https://github.com/simplify9/Bus)** - Message bus implementation
+- **[SimplyWorks.CqApi](https://github.com/simplify9/CqApi)** - Dynamic API generation  
+- **[SimplyWorks.Searchy](https://github.com/simplify9/Searchy)** - Search abstraction
+- **[SimplyWorks.CloudFiles](https://github.com/simplify9/CloudFiles)** - Cloud storage
+
+## 📄 License
+
+MIT License - see [LICENSE](https://github.com/simplify9/SW-PrimitiveTypes/blob/main/LICENSE) for details.
+
+## 🆘 Support & Contributing
+
+- 🐛 **Issues**: [Report bugs](https://github.com/simplify9/SW-PrimitiveTypes/issues)
+- 💬 **Discussions**: [Ask questions](https://github.com/simplify9/SW-PrimitiveTypes/discussions)  
+- 🤝 **Contributing**: [Contribution guide](https://github.com/simplify9/SW-PrimitiveTypes#contributing)
+
+---
+**Made with ❤️ by [Simplify9](https://github.com/simplify9)** | **[Full Documentation →](https://github.com/simplify9/SW-PrimitiveTypes)**
