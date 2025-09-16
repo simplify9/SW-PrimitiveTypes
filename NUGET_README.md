@@ -70,11 +70,11 @@ Part of the **Simplify9** ecosystem:
 - [SimplyWorks.CqApi](https://www.nuget.org/packages/SimplyWorks.CqApi) - Dynamic API generation
 - [SimplyWorks.Searchy](https://www.nuget.org/packages/SimplyWorks.Searchy) - Search abstractions
 
-## 📚 Complete Documentation
+## 📚 More Information
 
-**[📖 Full Documentation & Examples →](https://github.com/simplify9/SW-PrimitiveTypes)**
+**[📖 View on GitHub →](https://github.com/simplify9/SW-PrimitiveTypes)**
 
-Visit our GitHub repository for comprehensive guides, advanced examples, and contribution guidelines.
+Visit our GitHub repository for additional examples, source code, and contribution opportunities.
 
 ---
 
