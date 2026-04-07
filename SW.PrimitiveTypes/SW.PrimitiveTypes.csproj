@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+      <AssemblyVersion>8.0.0.0</AssemblyVersion>
     <PackageId>SimplyWorks.PrimitiveTypes</PackageId>
     <Authors>Simplify9</Authors>
     <Product>SimplyWorks.PrimitiveTypes</Product>
