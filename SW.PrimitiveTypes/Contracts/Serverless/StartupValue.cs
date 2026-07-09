@@ -10,5 +10,6 @@ namespace SW.PrimitiveTypes
         public string Default { get; set; }
         public string Type { get; set; }
         public bool Private { get; set; }
+        public string Description { get; set; }
     }
 }
