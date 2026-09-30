@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-      <AssemblyVersion>8.0.0.0</AssemblyVersion>
+    <TargetFramework>net10.0</TargetFramework>
+      <AssemblyVersion>10.0.0.0</AssemblyVersion>
     <PackageId>SimplyWorks.PrimitiveTypes</PackageId>
     <Authors>Simplify9</Authors>
     <Product>SimplyWorks.PrimitiveTypes</Product>

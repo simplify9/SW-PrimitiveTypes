@@ -5,7 +5,7 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/SimplyWorks.PrimitiveTypes?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/SimplyWorks.PrimitiveTypes/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-A comprehensive .NET 8.0 library providing foundational building blocks for modern application development. Essential types, interfaces, and patterns for domain-driven design, value objects, messaging, and API development.
+A comprehensive .NET 10 library providing foundational building blocks for modern application development. Essential types, interfaces, and patterns for domain-driven design, value objects, messaging, and API development.
 
 ## 🚀 Quick Start
 
