@@ -15,7 +15,7 @@ namespace SW.PrimitiveTypes
 
         /// <summary>
         /// Why the rules couldn't be read, or <c>null</c> when <see cref="Rules"/> is the bucket's real
-        /// rule set. No reason and no rules means nothing deletes the files.
+        /// rule set. No reason and no rules means no rule deletes files by age.
         /// </summary>
         public string Unavailable { get; set; }
 
