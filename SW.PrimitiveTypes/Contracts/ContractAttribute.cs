@@ -17,7 +17,8 @@ namespace SW.PrimitiveTypes
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false)]
     public class ContractAttribute : Attribute
     {
-        static readonly Regex KeyFormat = new Regex("^[a-z0-9]+(\\.[a-z0-9]+)*$", RegexOptions.CultureInvariant);
+        // \z, not $: in .NET "$" also matches before a final newline, which would let "orders\n" through.
+        static readonly Regex KeyFormat = new Regex("^[a-z0-9]+(\\.[a-z0-9]+)*\\z", RegexOptions.CultureInvariant);
 
         public ContractAttribute(string key)
         {

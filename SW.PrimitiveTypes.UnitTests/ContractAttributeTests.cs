@@ -51,6 +51,9 @@ namespace SW.PrimitiveTypes.UnitTests
         [DataRow("orders.msg.", 1, false)]
         [DataRow("orders-msg", 1, false)]
         [DataRow("orders.msg.placed", 0, false)]
+        [DataRow("orders\n", 1, false)]
+        [DataRow("orders.msg.placed\n", 1, false)]
+        [DataRow(" orders", 1, false)]
         public void Checks_its_form(string key, int major, bool wellFormed) =>
             Assert.AreEqual(wellFormed, new ContractAttribute(key) { Major = major }.IsWellFormed);
 
