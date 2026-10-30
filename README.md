@@ -21,6 +21,7 @@ dotnet add package SimplyWorks.PrimitiveTypes
 - 🎯 **API Handlers** - CQRS interfaces for commands and queries
 - 🔧 **Extensions** - Type conversion and utility methods
 - ☁️ **Cloud Storage** - File operation abstractions
+- 🏷️ **Contract labels** - `[Contract("orders.msg.placed", Major = 2)]` names the published shape of a type and its major version, for libraries and schema tools to read
 
 ## � Usage Example
 
