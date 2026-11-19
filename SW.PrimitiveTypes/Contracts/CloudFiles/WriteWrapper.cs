@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace SW.PrimitiveTypes
 {
+    /// <summary>
+    /// A streamed upload started by <see cref="ICloudFilesService.OpenWrite"/>: write the body to
+    /// <see cref="GetStreamAsync"/>, then call <see cref="CompleteRequestAsync"/>. Supported by the S3
+    /// provider only. Built on the obsolete <see cref="HttpWebRequest"/>; prefer
+    /// <see cref="ICloudFilesService.WriteAsync"/> in new code.
+    /// </summary>
     public class WriteWrapper : IDisposable
     {
         private readonly HttpWebRequest httpWebRequest;

@@ -57,13 +57,39 @@ For comprehensive guides, examples, and API reference:
 - 🤝 Contributing guidelines and development setup
 
 
+## ☁️ Cloud files contract
+
+`SW.PrimitiveTypes` defines the object-storage contract that the
+[SimplyWorks.CloudFiles](https://github.com/simplify9/SW-CloudFiles) providers implement
+(S3 and S3-compatible stores, Azure Blob, Google Cloud Storage, Oracle Object Storage, and a local store for tests):
+
+| Type | Role |
+|------|------|
+| `ICloudFilesService` | write, read, list, metadata, delete, public and signed URLs, streamed upload (S3 only) |
+| `ICloudFilesLifecycle` | reads the bucket's age-based deletion rules (`temp1/`, `temp7/`, `temp30/`, `temp365/` and any others) |
+| `WriteFileSettings`, `CloudFileInfo`, `RemoteBlob`, `WriteWrapper` | inputs and results |
+| `CloudFilesOptions` | connection settings, bound from the `CloudFiles` configuration section |
+
+The members are the same on every provider, but some behaviour differs: metadata keys, the result of
+deleting a missing key, which exception a missing key throws, and URL shapes. The XML docs note the main
+differences; the full table is the CloudFiles
+[provider behaviour reference](https://github.com/simplify9/SW-CloudFiles/blob/main/docs/provider-behavior.md).
+
+**Changing the contract.** Applications implement `ICloudFilesService` too (test fakes, stubs,
+decorators), so a new member breaks them even though it looks additive. Never add, change or remove
+members of `ICloudFilesService` or the shared models. Add a capability as a new interface that providers
+implement and register in DI beside `ICloudFilesService`, as `ICloudFilesLifecycle` is; add new model
+fields as optional properties. Release PrimitiveTypes first, then the providers, then consumers. Rules,
+roadmap and what stays out of scope:
+[Evolving the contract](https://github.com/simplify9/SW-CloudFiles/blob/main/docs/evolving-the-contract.md).
+
 ## 🏛️ Related Packages
 
 Part of the Simplify9 ecosystem:
 - **[SimplyWorks.Bus](https://github.com/simplify9/Bus)** - Message bus implementation
 - **[SimplyWorks.CqApi](https://github.com/simplify9/CqApi)** - Dynamic API generation  
 - **[SimplyWorks.Searchy](https://github.com/simplify9/Searchy)** - Search abstraction
-- **[SimplyWorks.CloudFiles](https://github.com/simplify9/CloudFiles)** - Cloud storage
+- **[SimplyWorks.CloudFiles](https://github.com/simplify9/SW-CloudFiles)** - Cloud storage
 
 ## 📄 License
 
