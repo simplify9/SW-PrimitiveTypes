@@ -21,7 +21,8 @@ namespace SW.PrimitiveTypes
     /// <para>
     /// Applications also implement this interface (fakes, stubs, decorators), so adding a member
     /// breaks them. New capabilities are added as separate interfaces registered next to this one,
-    /// as <see cref="ICloudFilesLifecycle"/> is. Never add, change or remove members here.
+    /// as <see cref="ICloudFilesLifecycle"/>, <see cref="ICloudFilesCopy"/> and
+    /// <see cref="ICloudFilesProperties"/> are. Never add, change or remove members here.
     /// </para>
     /// </remarks>
     public interface ICloudFilesService
@@ -105,8 +106,9 @@ namespace SW.PrimitiveTypes
         /// </summary>
         /// <remarks>
         /// The S3 and Oracle providers returned only the first 1,000 keys before SimplyWorks.CloudFiles
-        /// 10.0.4. The match is by prefix: to test whether one key exists, compare
-        /// <see cref="CloudFileInfo.Key"/> exactly instead of calling <c>Any()</c> on the result.
+        /// 10.0.4. The match is by prefix: to test whether one key exists, use
+        /// <see cref="ICloudFilesProperties"/>, or compare <see cref="CloudFileInfo.Key"/> exactly instead of
+        /// calling <c>Any()</c> on the result.
         /// </remarks>
         /// <param name="prefix">Key prefix, such as <c>"invoices/2026/"</c>. Empty lists the bucket.</param>
         Task<IEnumerable<CloudFileInfo>> ListAsync(string prefix);

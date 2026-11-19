@@ -67,6 +67,8 @@ For comprehensive guides, examples, and API reference:
 |------|------|
 | `ICloudFilesService` | write, read, list, metadata, delete, public and signed URLs, streamed upload (S3 only) |
 | `ICloudFilesLifecycle` | reads the bucket's age-based deletion rules (`temp1/`, `temp7/`, `temp30/`, `temp365/` and any others) |
+| `ICloudFilesCopy` | server-side copy inside the bucket (a move is copy + delete) |
+| `ICloudFilesProperties` | one object's size, content type, ETag, last-modified and metadata without downloading it, or `null` when it doesn't exist; `ExistsAsync` |
 | `WriteFileSettings`, `CloudFileInfo`, `RemoteBlob`, `WriteWrapper` | inputs and results |
 | `CloudFilesOptions` | connection settings, bound from the `CloudFiles` configuration section |
 
